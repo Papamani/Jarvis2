@@ -24,7 +24,7 @@ pipeline {
       }
       stage('Scan with IBM') {
       steps {
-      appscan application: 'e0081b5b-6fc7-4477-a58b-7c5ec5a0aba4', credentials: 'ibm', email: true, failBuild: true, failureConditions: [failure_condition(failureType: 'high', threshold: 2), failure_condition(failureType: 'total', threshold: 10)], name: 'Jaravis-build-war', scanner: static_analyzer(hasOptions: false, target: '13.233.151.1:8080'), type: 'Static Analyzer', wait: true
+     appscan application: 'e0081b5b-6fc7-4477-a58b-7c5ec5a0aba4', credentials: 'ibm', email: true, failBuild: true, failureConditions: [failure_condition(failureType: 'high', threshold: 2), failure_condition(failureType: 'total', threshold: 10)], name: 'Scan', scanner: static_analyzer(hasOptions: false, target: '$(Workspace)'), type: 'Static Analyzer', wait: true
       }
       }
       }
