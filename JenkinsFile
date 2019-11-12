@@ -17,5 +17,9 @@ pipeline {
                 }
             }
         }
+	stage('Scan with Probely') {
+      steps {
+        probelyScan targetId: '2Y4cg1YNq3nx', credentialsId: 'SecurityScanProbely'
+      }
       }
 	}
