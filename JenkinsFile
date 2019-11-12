@@ -22,10 +22,5 @@ pipeline {
         probelyScan credentialsId: 'probely', targetId: '2Y4cg1YNq3nx'
       }
       }
-      stage('Scan with IBM') {
-      steps {
-     appscan application: 'e0081b5b-6fc7-4477-a58b-7c5ec5a0aba4', credentials: 'ibm', email: true, failBuild: true, failureConditions: [failure_condition(failureType: 'high', threshold: 2), failure_condition(failureType: 'total', threshold: 10)], name: 'Scan', scanner: static_analyzer(hasOptions: false, target: '$(Workspace)'), type: 'Static Analyzer', wait: true
-      }
-      }
       }
       }
