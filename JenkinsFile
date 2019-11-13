@@ -5,14 +5,12 @@ pipeline {
     }   
   
     stages {
-
-	  stage('SonarQube Analysis'){
-            steps{
-               withSonarQubeEnv('sonarqube'){
-                     sh 'mvn sonar:sonar'
-                }
+        stage('Compile-Build-Test ') {
+            steps {
+                sh 'mvn clean package'
             }
-	    }
+        }
+	 
 	stage('Scan with Probely') {
       steps {
         probelyScan credentialsId: 'probely', targetId: '2Y4cg1YNq3nx'
