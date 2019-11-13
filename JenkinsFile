@@ -5,11 +5,7 @@ pipeline {
     }   
   
     stages {
-        stage('Compile-Build-Test ') {
-            steps {
-                sh 'mvn build'
-            }
-        }
+
 	  stage('SonarQube Analysis'){
             steps{
                withSonarQubeEnv('sonarqube'){
